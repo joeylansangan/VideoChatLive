@@ -15,4 +15,10 @@ app.get('/:room', (req, res) => {
     res.render('room', { roomId: req.params.room})
 })
 
+io.on('connection', socket => {
+    socket.on('join-room', (roomId, usesrId) => {
+        console.log(roomId, userId)
+    })
+})
+
 server.listen(3000, () => console.log(`listening on - http://localhost:3000`))
